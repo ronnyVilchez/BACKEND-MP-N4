@@ -1,0 +1,26 @@
+create table users (
+	id INT Auto_increment primary key,
+	name VARCHAR(150),
+	biography TEXT,
+	phone varchar(20),
+	email VARCHAR (100) not null,
+	password VARCHAR(255) not null,
+	photo blob
+);
+
+insert into users (id, name, biography, phone, email, password, photo) values 
+(1, 
+'Annmaria Cave',
+'Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.',
+'9999555', 
+'acave0@surveymonkey.com', 
+'$2a$04$l/j1M9IlsFTC2AbBGPe9WOX6efafySmRSOZuEyYjaVAWO5IypyTlO', 
+'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAG7SURBVDjLjZMxi1NREIXPC9HCKGGN2MgWdio2utZxA0KKVPkBwqaR/IS0dqYx/0LIVpsuBMFKA5LdQotF1kJWcMvYmBfemzPH4r4X3+pDMjDM3MvMx5m53Gg4HJ5L2pV0OhgMHmAL6/f779I03Sd5WgGw2+l0QPIetrQ4jvd7vR7iOL5fJXkymUweXb1+OzparCQATiCPDsAFkMDz5rUIANbr9dvRaPTMzN5HkgAAR4uVdmoVQKFJHhqlEC9+Og6eBkDRqnlCD8V5Q+4S4A6Yl4+zAeSFyiS7/wVhOWEzwuGHlW7eqEACPp0vgyoJJCA6zAE3hxlgJF4d3I0uKTABLIxwZ+dKUOECXXCGSApff6QlO2BBNpWdBXcHHSAdZAAkqZcABFwsHXQPxS44HSSyuz9K0lT/AopP9PJwKZpvJNMdbgp7oMOsBFA0M8EKkjc7yHIz/h+QJoRZddNoVLZMhxOXFXS73UWSJHskj6fT6RMASM1x9v0XUgdoDiNgRjjD03588wK3Xn+RmZ2h3W5rNpup2WxKErbxRqOh8XisWq2mqNVqHSdJ8pjkyXw+39vmN9br9c9m9pDkt98JJaJgEg+kbwAAAABJRU5ErkJggg==');
+
+insert into users (id, name, biography, phone, email, password, photo) values (2, 
+'Travis Souten',
+'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.',
+'4545125', 
+'tsouten1@craigslist.org', 
+'$2a$04$OyAgr2m7uW8ZmULy8Jz1N.iMlZ5QbjFewwcGpTXRi7SMH.69DnfrK', 
+'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKrSURBVDjLZZPPTxNREMe/265tbbEEkmpD6wGCGolwkYh6gIZwa28evHrTGMPFxL+AmxqT3ogxejDePGhQYxqh8VC1tCZSBVLFCsovgdKW/u7ue85s3BV1ksm8fW++n5n3YxUpJUzTclE7hTa1e7xozsnXSqcyLPNiWrkkdTwl18mbB8KyxuuKCSDxAIWX5IuQYp7iY0DEbSvXz0PHNRIFyJNCx2lHRIbMAvsBNykMQcqz1YYsNFvC3W6b98RnN6qhwPODantIEYV1aLXFNwR6IDTE3BdlzoY/Ni+EPDO3VNPvvdB8qSWPp6kcxXDPglvtHFWUZhvs9SOwVX3nRAsOFrPIApDoUL7YcJ7qcbm21r/g2fRHTL/NQVTWIUqrQJm2vFeDbLSwlnde3buv+C3AxMTE4LfvWzfuPtlEqaLB3daBRCKBzOZx3H53BfXCZ1T2XqEhFpEsHsaFyRNy6ObJoAVoNpuRrq6uwPu5r7j1aBvZpVUUi0Wsra3B71zBww+jmP3RjTvpAWwXVBzrDvZVq9UIa9XfAONUfT4fYrEYaBFjY2Pwer2Y27ChXPZi5afEwoYbiVwHnE6npTEA9Xq9XwgBv9+PcDgMHrdaLVQqFcNpHZ/yHjQaDWiaZgBovd8CcFKhUKBKZUOs67oBYEGtVjMA7FTVAPAcRwtAExkCjLCAE3mRISzgb57nMbvNZkOpVOKcjAWgynGHwzGiKIrRDVdnCEcWmZGhLpcLOzs7PI5bt0AnPpXNZvn5GlvgFvkg/23fbrcbbedyOXp0YsoCzMzMpEgQTSaTJW5RVVUDZFZn48oMSKfTJaoeJWjqr3+Brbe39zIJxoPBYJ/H4zH2a97G7u4ulpeXuXKUwJP//UymBQKBQTq0CJ1BiCoZ10ueIY9T7hSJU/vzfwHG+eOypzQIsAAAAABJRU5ErkJggg==');
