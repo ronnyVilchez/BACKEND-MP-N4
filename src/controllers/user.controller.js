@@ -15,8 +15,8 @@ export const userInfo = async (req, res) => {
 
 export const createNewUser = async (req, res) => {
     try {
+      
         const { email, password } = req.body
-
         if (!email || !password) return res.status(500).json({ message: 'Falta ingresar datos' })
 
         const newUser = await User.createUser(email, password)
@@ -29,6 +29,8 @@ export const createNewUser = async (req, res) => {
 
 
     } catch (error) {
+      
+        if(error.errno===1062){return res.status(500).json({message: 'Este correo ya pertenece a un usuario'})}
         res.status(500).json({ message: error.message })
     }
 }

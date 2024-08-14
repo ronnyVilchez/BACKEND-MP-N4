@@ -10,6 +10,7 @@ export class User {
     static async createUser(email, password) {
         const passEnc = await hash(password, 10)
         const newUser = await pool.execute('INSERT INTO users ( email, password) VALUES (?,?)', [email, passEnc])
+     
         return newUser[0]
     }
 
