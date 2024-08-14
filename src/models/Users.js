@@ -4,13 +4,14 @@ import { pool } from "../config/db.js";
 export class User {
     static async userId(id) {
         const user = await pool.execute('SELECT * FROM users WHERE id=?', [id])
+   
         return user[0]
     }
 
     static async createUser(email, password) {
         const passEnc = await hash(password, 10)
         const newUser = await pool.execute('INSERT INTO users ( email, password) VALUES (?,?)', [email, passEnc])
-     
+    
         return newUser[0]
     }
 
@@ -42,6 +43,7 @@ export class User {
 
         if (photo) {
             sql.push('photo=?,')
+            console.log(photo);
             values.push(photo)
         }
 

@@ -1,4 +1,6 @@
 import { User } from "../models/Users.js"
+import path from 'path'
+import fs from 'fs/promises'
 
 export const userInfo = async (req, res) => {
     try {
@@ -15,7 +17,7 @@ export const userInfo = async (req, res) => {
 
 export const createNewUser = async (req, res) => {
     try {
-      
+
         const { email, password } = req.body
         if (!email || !password) return res.status(500).json({ message: 'Falta ingresar datos' })
 
@@ -29,15 +31,16 @@ export const createNewUser = async (req, res) => {
 
 
     } catch (error) {
-      
-        if(error.errno===1062){return res.status(500).json({message: 'Este correo ya pertenece a un usuario'})}
+
+        if (error.errno === 1062) { return res.status(500).json({ message: 'Este correo ya pertenece a un usuario' }) }
         res.status(500).json({ message: error.message })
     }
 }
 export const editNewUser = async (req, res) => {
     try {
         const { id } = req.params
-        const { name, biography, phone, email, password, photo } = req.body
+        const { name, biography, phone, email, password } = req.body
+        const photo = req.file.filename
 
         if (!email) return res.status(500).json({ message: 'El email o password no pueden estar vacios' })
 
@@ -48,6 +51,19 @@ export const editNewUser = async (req, res) => {
         return res.status(500).json({ message: 'Hubo un error interno al editar el usuario' })
 
     } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
+export const imageProfile = async (req, res) => {
+    try {
+        const { filename } = req.params
+        const ruta = path.resolve(`./public/uploads/${filename}`)
+
+        await fs.access(ruta)
+
+        res.sendFile(ruta)
+    } catch (error) {
+        if(error.errno === -4058) {return res.status(404).json({message: 'La foto no se pudo encontrar'})}
         res.status(500).json({ message: error.message })
     }
 }
