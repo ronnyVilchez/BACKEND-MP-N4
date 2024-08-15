@@ -18,7 +18,7 @@ export class User {
     static async editUser(id, name, biography, phone, email, password, photo) {
         const sql = []
         const values = []
-
+console.log(photo);
         if (name) {
             sql.push('name=?,')
             values.push(name)

@@ -40,7 +40,9 @@ export const editNewUser = async (req, res) => {
     try {
         const { id } = req.params
         const { name, biography, phone, email, password } = req.body
-        const photo = req.file.filename
+        console.log(req.file);
+
+        const photo = req.file? req.file.filename : ''
 
         if (!email) return res.status(500).json({ message: 'El email o password no pueden estar vacios' })
 
@@ -51,6 +53,7 @@ export const editNewUser = async (req, res) => {
         return res.status(500).json({ message: 'Hubo un error interno al editar el usuario' })
 
     } catch (error) {
+     
         res.status(500).json({ message: error.message })
     }
 }
