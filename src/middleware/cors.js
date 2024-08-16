@@ -1,6 +1,7 @@
 export const validCors =(req,res,next)=>{
-    const frontend = ['http://localhost:5173']
+    const frontend = ['http://localhost:5173','http://localhost:3000']
     const {origin} = req.headers
+   
 
     if(frontend.includes(origin) || !origin ) {
         res.setHeader('Access-Control-Allow-Origin',origin ?? '*')
